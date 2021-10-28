@@ -350,7 +350,13 @@ from it!
 ghci> :l src/Chapter2.hs
 -}
 subList :: Int -> Int -> [a] -> [a]
-subList = error "subList: Not implemented!"
+subList x y a
+    | (x < 0) = []
+    | (y < 0) = []
+    | (y < x) = []
+    | ((y - 2) < 0) = []
+    | otherwise = take (y - 2) (drop x a)
+
 
 {- |
 =⚔️= Task 4
