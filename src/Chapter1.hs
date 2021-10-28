@@ -429,6 +429,7 @@ task is to specify the type of this function.
 49
 -}
 
+squareSum :: Int -> Int -> Int
 squareSum x y = (x + y) * (x + y)
 
 
@@ -449,7 +450,7 @@ Implement the function that takes an integer value and returns the next 'Int'.
   function body with the proper implementation.
 -}
 next :: Int -> Int
-next x = error "next: not implemented!"
+next x = x + 1
 
 {- |
 After you've implemented the function (or even during the implementation), you
@@ -489,8 +490,8 @@ Implement a function that returns the last digit of a given number.
   results. Or you can try to guess the function name, search for it and check
   whether it works for you!
 -}
--- DON'T FORGET TO SPECIFY THE TYPE IN HERE
-lastDigit n = error "lastDigit: Not implemented!"
+lastDigit :: Int -> Int
+lastDigit n = mod n 10
 
 
 {- |
@@ -520,7 +521,7 @@ branches because it is an expression and it must always return some value.
   satisfying the check will be returned and, therefore, evaluated.
 -}
 closestToZero :: Int -> Int -> Int
-closestToZero x y = error "closestToZero: not implemented!"
+closestToZero x y = if (abs x) < (abs y) then x else y
 
 
 {- |
@@ -554,7 +555,17 @@ value after "=" where the condition is true.
 Casual reminder about adding top-level type signatures for all functions :)
 -}
 
-mid x y z = error "mid: not implemented!"
+mid :: Int -> Int -> Int -> Int
+mid x y z 
+    | (x < y) && (x > z) = x
+    | (y > x) && (y < z) = y
+    | (z > y) && (z < x) = z
+    | (y < x) && (y > z) = y
+    | (x > y) && (x < z) = x
+    | (x == y) && (y == z) = z
+    | (x == y) && (y < z) = x
+    | (x == z) && (y < z) = x
+    | otherwise = z
 
 {- |
 =⚔️= Task 8
@@ -568,7 +579,14 @@ True
 >>> isVowel 'x'
 False
 -}
-isVowel c = error "isVowel: not implemented!"
+isVowel :: Char -> Bool
+isVowel c
+    | (c == 'a') = True
+    | (c == 'e') = True
+    | (c == 'i') = True
+    | (c == 'o') = True
+    | (c == 'u') = True
+    | otherwise = False
 
 
 {- |
