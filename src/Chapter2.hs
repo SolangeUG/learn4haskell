@@ -349,13 +349,14 @@ from it!
 
 ghci> :l src/Chapter2.hs
 -}
-subList :: Int -> Int -> [a] -> [a]
+import Data.List (intersect)
+
+subList :: Eq a => Int -> Int -> [a] -> [a]
 subList x y a
-    | (x < 0) = []
-    | (y < 0) = []
-    | (y < x) = []
-    | ((y - 2) < 0) = []
-    | otherwise = take (y - 2) (drop x a)
+    | x < 0 = []
+    | y < 0 = []
+    | y < x = []
+    | otherwise = drop x a `intersect` take (y + 1) a
 
 
 {- |
@@ -368,8 +369,8 @@ Implement a function that returns only the first half of a given list.
 >>> firstHalf "bca"
 "b"
 -}
--- PUT THE FUNCTION TYPE IN HERE
-firstHalf l = error "firstHalf: Not implemented!"
+firstHalf :: [a] -> [a]
+firstHalf l = take (div (length l) 2) l
 
 
 {- |
