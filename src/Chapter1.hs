@@ -649,8 +649,13 @@ Implement a function that returns the sum of the last two digits of a number.
 Try to introduce variables in this task (either with let-in or where) to avoid
 specifying complex expressions.
 -}
-
-sumLast2 n = error "sumLast2: Not implemented!"
+sumLast2 :: Int -> Int
+sumLast2 n = lastDigit n + secondLastDigit n
+  where
+    lastDigit :: Int -> Int
+    lastDigit n = mod n 10
+    secondLastDigit :: Int -> Int    
+    secondLastDigit n = mod (div n 10) 10
 
 
 {- |
@@ -670,8 +675,10 @@ Implement a function that returns the first digit of a given number.
 You need to use recursion in this task. Feel free to return to it later, if you
 aren't ready for this boss yet!
 -}
-
-firstDigit n = error "firstDigit: Not implemented!"
+firstDigit :: Int -> Int
+firstDigit n
+    | (n < 10) = n
+    | otherwise = firstDigit (div n 10)
 
 
 {-
