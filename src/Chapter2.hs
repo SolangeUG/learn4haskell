@@ -522,7 +522,9 @@ True
 >>> isThird42 [42, 42, 0, 42]
 False
 -}
-isThird42 = error "isThird42: Not implemented!"
+isThird42 :: [Int] -> Bool
+isThird42 (_ : _ : 42 : _) = True
+isThird42 _ = False
 
 
 {- |
@@ -627,7 +629,8 @@ Implement a function that duplicates each element of the list
 
 -}
 duplicate :: [a] -> [a]
-duplicate = error "duplicate: Not implemented!"
+duplicate [] = []
+duplicate (x : xs) = x : x : duplicate xs
 
 
 {- |
@@ -642,7 +645,13 @@ Write a function that takes elements of a list only in even positions.
 >>> takeEven [2, 1, 3, 5, 4]
 [2,3,4]
 -}
-takeEven = error "takeEven: Not implemented!"
+takeEven :: [a] -> [a]
+takeEven [] = []
+takeEven l = go 0 l
+  where
+    go :: Int -> [a] -> [a]
+    go _ [] = []
+    go index (x : xs) = if even index then x : go (index + 1) xs else go (index + 1) xs
 
 {- |
 =🛡= Higher-order functions
