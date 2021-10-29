@@ -223,7 +223,7 @@ to guess first, what you will see.
 ", World!"
 
 >>> zip "abc" [1, 2, 3]  -- convert two lists to a single list of pairs
-[('a', 1),('b', 2),('c', 3)]
+[('a',1),('b',2),('c',3)]
 
 >>> words "Hello   Haskell     World!"  -- split the string into the list of words
 ["Hello","Haskell","World!"]
