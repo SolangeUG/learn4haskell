@@ -40,6 +40,8 @@ Now, if you are ready, bring it on!
 
 module Chapter2 where
 
+import Data.List (intersect)
+
 {-
 =🛡= Imports
 
@@ -349,7 +351,6 @@ from it!
 
 ghci> :l src/Chapter2.hs
 -}
-import Data.List (intersect)
 
 subList :: Eq a => Int -> Int -> [a] -> [a]
 subList x y a
