@@ -652,10 +652,8 @@ specifying complex expressions.
 sumLast2 :: Int -> Int
 sumLast2 n = lastDigit n + secondLastDigit n
   where
-    lastDigit :: Int -> Int
-    lastDigit n = mod (abs n) 10
     secondLastDigit :: Int -> Int    
-    secondLastDigit n = mod (div (abs n) 10) 10
+    secondLastDigit a = mod (div (abs a) 10) 10
 
 
 {- |
