@@ -344,6 +344,13 @@ of a book, but you are not limited only by the book properties we described.
 Create your own book type of your dreams!
 -}
 
+data Book = Book
+    { title   :: String 
+    , author  :: String 
+    , year    :: Int
+    , edition :: String 
+    } deriving (Show)
+
 {- |
 =⚔️= Task 2
 
@@ -375,6 +382,21 @@ after the fight. The battle has the following possible outcomes:
 ♫ NOTE: In this task, you need to implement only a single round of the fight.
 
 -}
+
+data Knight = Knight
+    { knightHealth :: Int
+    , knightAttack :: Int
+    , knightGold   :: Int
+    } deriving (Show)
+
+data Monster = Monster
+    { monsterHealth :: Int
+    , monsterAttack :: Int
+    , monsterGold   :: Int
+    } deriving (Show)
+
+fight :: Knight -> Monster -> Int
+fight k m = error "fight: Not implemented!"
 
 {- |
 =🛡= Sum types
